@@ -60,6 +60,7 @@ _riverctl_commands()
         'hide-cursor:Hide cursor when typing or after inactivity'
         'set-repeat:Set the keyboard repeat rate and repeat delay'
         'set-cursor-warp:Set the cursor warp mode.'
+        'smart-borders:Set the smart borders mode.'
         'xcursor-theme:Set the xcursor theme'
         # Keyboard groups
         'keyboard-group-create:Create a keyboard group'

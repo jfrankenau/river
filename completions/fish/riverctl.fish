@@ -70,6 +70,7 @@ complete -c riverctl -n '__fish_riverctl_complete_arg 1' -a 'focus-follows-curso
 complete -c riverctl -n '__fish_riverctl_complete_arg 1' -a 'hide-cursor'            -d 'Hide cursor when typing or after inactivity'
 complete -c riverctl -n '__fish_riverctl_complete_arg 1' -a 'set-repeat'             -d 'Set the keyboard repeat rate and repeat delay'
 complete -c riverctl -n '__fish_riverctl_complete_arg 1' -a 'set-cursor-warp'        -d 'Set the cursor warp mode'
+complete -c riverctl -x '__fish_riverctl_complete_arg 1' -a 'smart-borders'          -d 'Set the smart borders mode.'
 complete -c riverctl -n '__fish_riverctl_complete_arg 1' -a 'xcursor-theme'          -d 'Set the xcursor theme'
 # Keyboardgroups
 complete -c riverctl -n '__fish_riverctl_complete_arg 1' -a 'keyboard-group-create'  -d 'Create a keyboard group'
@@ -89,6 +90,7 @@ complete -c riverctl -n '__fish_seen_subcommand_from unmap'                     
 complete -c riverctl -n '__fish_seen_subcommand_from attach-mode'                 -n '__fish_riverctl_complete_arg 2' -a 'top bottom'
 complete -c riverctl -n '__fish_seen_subcommand_from focus-follows-cursor'        -n '__fish_riverctl_complete_arg 2' -a 'disabled normal always'
 complete -c riverctl -n '__fish_seen_subcommand_from set-cursor-warp'             -n '__fish_riverctl_complete_arg 2' -a 'disabled on-output-change on-focus-change'
+complete -c riverctl -x '__fish_seen_subcommand_from smart-borders'               -n '__fish_riverctl_complete_arg 2' -a 'disabled enabled'
 complete -c riverctl -n '__fish_seen_subcommand_from list-rules'                  -n '__fish_riverctl_complete_arg 2' -a 'float ssd tag output position dimensions fullscreen'
 
 # Options and subcommands for 'rule-add' and 'rule-del'

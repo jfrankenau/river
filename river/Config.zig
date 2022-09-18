@@ -66,11 +66,20 @@ pub const Dimensions = struct {
     height: u31,
 };
 
+pub const SmartBordersMode = enum {
+    disabled,
+    /// Turn off border when the view takes up all usable space
+    enabled,
+};
+
 /// Color of background in RGBA with premultiplied alpha (alpha should only affect nested sessions)
 background_color: [4]f32 = [_]f32{ 0.0, 0.16862745, 0.21176471, 1.0 }, // Solarized base03
 
 /// Width of borders in pixels
 border_width: u31 = 2,
+
+/// The selected smart_border mode
+smart_borders: SmartBordersMode = .disabled,
 
 /// Color of border of focused window in RGBA with premultiplied alpha
 border_color_focused: [4]f32 = [_]f32{ 0.57647059, 0.63137255, 0.63137255, 1.0 }, // Solarized base1

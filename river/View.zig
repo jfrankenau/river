@@ -393,6 +393,13 @@ pub fn updateCurrent(view: *Self) void {
             },
         };
 
+        var single_view: bool = false;
+        if (view.current.output != null) {
+            single_view = std.meta.eql(view.current.box, view.current.output.?.*.usable_box);
+        }
+        const enable_borders = view.current.ssd and !view.current.fullscreen and
+            !(server.config.smart_borders == .enabled and single_view);
+
         for (&view.borders, &border_boxes) |border, *border_box| {
             border_box.x += box.x;
             border_box.y += box.y;
@@ -400,7 +407,7 @@ pub fn updateCurrent(view: *Self) void {
             border_box.x -= box.x;
             border_box.y -= box.y;
 
-            border.node.setEnabled(view.current.ssd and !view.current.fullscreen);
+            border.node.setEnabled(enable_borders);
             border.node.setPosition(border_box.x, border_box.y);
             border.setSize(border_box.width, border_box.height);
             border.setColor(border_color);

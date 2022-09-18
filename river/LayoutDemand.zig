@@ -132,9 +132,17 @@ pub fn apply(self: *Self, layout: *Layout) void {
         {
             const proposed = &self.view_boxen[i];
 
+            var border_width = if (view.inflight.ssd) server.config.border_width else 0;
+
+            if (server.config.smart_borders == .enabled and
+                proposed.width == output.usable_box.width and
+                proposed.height == output.usable_box.height)
+            {
+                border_width = 0;
+            }
+
             // Here we apply the offset to align the coords with the origin of the
             // usable area and shrink the dimensions to accommodate the border size.
-            const border_width = if (view.inflight.ssd) server.config.border_width else 0;
             view.inflight.box = .{
                 .x = proposed.x + output.usable_box.x + border_width,
                 .y = proposed.y + output.usable_box.y + border_width,
