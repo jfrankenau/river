@@ -52,8 +52,8 @@ pub fn build(b: *Build) !void {
     const xwayland = b.option(
         bool,
         "xwayland",
-        "Set to true to enable xwayland support",
-    ) orelse false;
+        "Set to true to enable xwayland support. Defaults to true.",
+    ) orelse true;
 
     const full_version = blk: {
         if (mem.endsWith(u8, version, "-dev")) {
