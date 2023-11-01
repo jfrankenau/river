@@ -95,15 +95,8 @@ fn getTarget(seat: *Seat, direction_str: []const u8, target_mode: TargetMode) !?
                     if (output.pending.tags & view.pending.tags != 0) return view;
                 }
 
-                // Wrap and return the first view in the stack matching the tags if
-                // any is found before completing the loop back to the focused view.
-                while (it.next()) |view| {
-                    if (view == seat.focused.view) return null;
-                    if (target_mode == .skip_float and view.pending.float) continue;
-                    if (output.pending.tags & view.pending.tags != 0) return view;
-                }
-
-                unreachable;
+                // Do not wrap
+                return null;
             },
         }
     }
